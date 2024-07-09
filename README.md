@@ -12,7 +12,7 @@
 
 2. 安装 `Openssl` 用于本地测试生成证书  
 [Openssl for Windows](http://slproweb.com/products/Win32OpenSSL.html) 下载 `Light` 版本就行  
-然后无脑下一步安装，记一下安装位置，方便等下设置环境变量
+然后无脑下一步安装，记一下安装位置，方便等下设置环境变量  
 找到【系统属性】-【环境变量】-【系统变量】中 Path 变量后点击编辑  
 设置 `openssl` 的环境变量（安装 openssl 路径的 bin 目录）  
 Windows 打开 `shell` 输出 `openssl version` 不报错且正常输出 `openssl` 版本即说明安装成功。
