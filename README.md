@@ -41,7 +41,7 @@ PS：本项目不提供易支付源码，请自行寻找/购买正版
     docker-compose down
 ```
 
- 1. 访问本机测试地址 `http://localhost:1443` ，由于开启了 强制 `https` 所以可能会跳转到 `https://localhost` 手动输入，手动输入端口即可
+ 1. 访问本机测试地址 `http://localhost:1443` ，由于开启了 强制 `https` 所以可能会跳转到 `https://localhost` 手动输入端口即可
  2. 点击下一步后，输入 `Mysql` 信息，需要将数据库地址 改为 `db` ，而不是原来的  `localhost`
  3. 数据库账号密码等信息从 `docker-compose.yml` - `db` - `environment` 中寻找 即可正常安装
 
