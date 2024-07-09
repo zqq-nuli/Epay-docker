@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "1080:80"
+      - "1443:443"
+    volumes:
+      - ./website:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/pay.conf
+      - ./ssl:/etc/nginx/ssl
+      - ./fastcgi-php.conf:/etc/nginx/snippets/fastcgi-php.conf
+      - ./www/wwwlogs:/www/wwwlogs
+    depends_on:
+      - php
+
+  php:
+    build: .
+    volumes:
+      - ./website:/var/www/html
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user_password
+    ports:
+      - "3306:3306"
