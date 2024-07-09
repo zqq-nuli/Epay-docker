@@ -17,7 +17,7 @@
 设置 `openssl` 的环境变量（安装 openssl 路径的 bin 目录）  
 Windows 打开 `shell` 输出 `openssl version` 不报错且正常输出 `openssl` 版本即说明安装成功。
 3. 生成本地测试自签证书
-打开 `shell` 进入到 ssl 目录 执行以下命令  
+打开 `shell` 进入到 `ssl` 目录 执行以下命令  
 ```sh
     openssl req -new -x509 -nodes -days 365 -config openssl.cnf -keyout nginx.key -out nginx.crt
 ```
@@ -41,9 +41,9 @@ PS：本项目不提供易支付源码，请自行寻找/购买正版
     docker-compose down
 ```
 
-    3. 访问本机测试地址 `http://localhost:1443` ，由于开启了 强制 `https` 所以可能会跳转到 `https://localhost` 手动输入，手动输入端口即可
-    4. 点击下一步后，输入 `Mysql` 信息，需要将数据库地址 改为 `db` ，而不是原来的  `localhost`
-    5. 数据库账号密码等信息从 `docker-compose.yml` - `db` - `environment` 中寻找 即可正常安装
+ 1. 访问本机测试地址 `http://localhost:1443` ，由于开启了 强制 `https` 所以可能会跳转到 `https://localhost` 手动输入，手动输入端口即可
+ 2. 点击下一步后，输入 `Mysql` 信息，需要将数据库地址 改为 `db` ，而不是原来的  `localhost`
+ 3. 数据库账号密码等信息从 `docker-compose.yml` - `db` - `environment` 中寻找 即可正常安装
 
 
 ## 线上部署
