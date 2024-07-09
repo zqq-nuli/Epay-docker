@@ -63,7 +63,7 @@ PS：本项目不提供易支付源码，请自行寻找/购买正版
 ## 自定义配置
 
 > 主要是修改 `docker-compose.yml` 文件，下面是一些字段解释   
-> `.env.example` 中的 `COMPOSE_PROJECT_NAME` 为 `docker` 容器名，如有特殊请自行修改
+> `.env.example` 中的 `COMPOSE_PROJECT_NAME` 为 `docker` 容器名，如有特殊请自行修改  
 > `nginx` 的修改，请自行研究
 
 
