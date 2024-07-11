@@ -5,18 +5,19 @@ services:
     image: nginx:latest
     ports:
       - "1080:80"
-      - "1443:443"
     volumes:
       - ./website:/var/www/html
-      - ./nginx.conf:/etc/nginx/conf.d/pay.conf
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - ./ssl:/etc/nginx/ssl
       - ./fastcgi-php.conf:/etc/nginx/snippets/fastcgi-php.conf
       - ./www/wwwlogs:/www/wwwlogs
+    user: root
     depends_on:
       - php
 
   php:
     build: .
+    user: root
     volumes:
       - ./website:/var/www/html
 
