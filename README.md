@@ -16,12 +16,12 @@
 找到【系统属性】-【环境变量】-【系统变量】中 Path 变量后点击编辑  
 设置 `openssl` 的环境变量（安装 openssl 路径的 bin 目录）  
 Windows 打开 `shell` 输出 `openssl version` 不报错且正常输出 `openssl` 版本即说明安装成功。~~
-3.~~ 生成本地测试自签证书
-打开 `shell` 进入到 `ssl` 目录 执行以下命令  ~~
+3.~~生成本地测试自签证书
+打开 `shell` 进入到 `ssl` 目录 执行以下命令~~
 ```sh
     openssl req -new -x509 -nodes -days 365 -config openssl.cnf -keyout nginx.key -out nginx.crt
 ```
-~~然后会在本地看到两个文件 `nginx.key` 与 `nginx.crt`  ~~
+~~然后会在本地看到两个文件 `nginx.key` 与 `nginx.crt`~~
 ~~有特殊要求的可以修改 `openssl.cnf` 文件~~
 
 ### 本地测试
@@ -75,7 +75,7 @@ services:
     image: nginx:latest
     ports: # 如果外部有端口冲突 请修改此项
       - "1080:80"  # 将 容器内的 80 端口 映射到外部 1080
-      - "1443:443" # 将 容器内的 443 端口 映射到外部 1443 
+    user: root
     volumes:
       - ./website:/var/www/html
       - ./nginx.conf:/etc/nginx/conf.d/pay.conf
@@ -87,6 +87,7 @@ services:
 
   php:
     build: .
+    user: root
     volumes:
       - ./website:/var/www/html
 
@@ -104,11 +105,6 @@ services:
 
 ## 项目结构
 ```sh
-
-├─ssl
-    └─nginx.crt
-    └─nginx.key
-    └─openssl.conf
 ├─website
     └─index.php
     └─****//易支付源代码
@@ -121,3 +117,11 @@ services:
 └─nginx.conf
 └─REDAME.md
 ```
+
+
+## 更新 2024-07-12
+
+1. 去掉https配置
+2. 修复文件目录无写入权限问题
+
+PS：现在容器内只映射80端口 外部配置域名与证书
