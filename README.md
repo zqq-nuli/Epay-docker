@@ -55,9 +55,23 @@ PS：本项目不提供易支付源码，请自行寻找/购买正版
 > 4. 删除 `.git` 目录 与 `README.md` 文件  
 > 5. 将所有代码上传至服务器，运行下方命令启动容器
 
+### 打包容器
+```sh
+    docker-compose build
+```
+### 启动容器
 ```sh
     docker-compose up -d
 ```
+### 停止容器
+```sh
+    docker-compose stop
+```
+### 删除容器(有修改后要删除，然后再打包)
+```sh
+    docker-compose down
+```
+
 
 
 ## 自定义配置
